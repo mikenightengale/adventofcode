@@ -53,7 +53,9 @@ def main():
     
     if example:
         print("=== Testing with example ===")
-        # run_test(part1, example, expected_result, "Part 1 Example")
+        expected_result = 0  # Set this to the correct expected result for the example
+        run_test(part1, example, expected_result, "Part 1 Example")
+        # run_test(part2, example, expected_result, "Part 2 Example")
     
     # Solve actual puzzle
     print("\n=== Part 1 ===")
