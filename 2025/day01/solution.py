@@ -101,7 +101,7 @@ def main():
     # Test with example if available
     example = [ "L68", "L30", "R48", "L5", "R60", "L55", "L1", "L99", "R14", "L82" ]
 
-    if example:
+    if example and len(example) > 0:
         print("=== Testing with example ===")
         run_test(part1, example, 3, "Part 1")
         run_test(part2, example, 6, "Part 2")
