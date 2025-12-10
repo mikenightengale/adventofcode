@@ -38,15 +38,6 @@ def parse_rotations(data: list[str]):
     return [(line[0], int(line[1:])) for line in data]
 
 
-def run_test(func, input_data, expected, description=""):
-    """Run a test and compare the result against expected value."""
-    result = func(input_data)
-    status = "✓ PASS" if result == expected else "✗ FAIL"
-    print(f"{status}: {description}")
-    print(f"  Expected: {expected}, Got: {result}")
-    return result == expected
-
-
 @timeit
 def part1(data: list[str]) -> int:
     """Solve Part 1 of the puzzle."""

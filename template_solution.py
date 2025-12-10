@@ -19,15 +19,6 @@ def parse_input(data: list[str]):
     pass
 
 
-def run_test(func, test_data, expected_result, test_name):
-    """Run a test and compare the result against expected value."""
-    result = func(test_data)
-    status = "✓ PASS" if result == expected_result else "✗ FAIL"
-    print(f"{status}: {test_name}")
-    print(f"  Expected: {expected_result}, Got: {result}")
-    return result == expected_result
-
-
 @timeit
 def part1(data: list[str]) -> int:
     """Solve Part 1 of the puzzle."""
