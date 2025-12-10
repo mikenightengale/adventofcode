@@ -30,7 +30,7 @@ from pathlib import Path
 
 # Add parent directory to path to import utility
 sys.path.append(str(Path(__file__).parent.parent.parent))
-from utility import timeit, read_lines
+from utility import timeit, read_lines, run_test
 
 
 def parse_rotations(data: list[str]):
