@@ -1,0 +1,16 @@
+# Advent of Code 2025 - Python Requirements
+# Install with: pip install -r requirements.txt
+
+# Core dependencies
+numpy>=1.24.0
+requests>=2.31.0
+
+# Optional but recommended
+# For interactive exploration and testing
+ipython>=8.0.0
+
+# For better debugging
+pprint>=0.1
+
+# Note: Python 3.10+ is recommended for full feature support
+# (match statements, type hints, etc.)
