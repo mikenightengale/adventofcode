@@ -10,7 +10,7 @@ requests>=2.31.0
 ipython>=8.0.0
 
 # For better debugging
-pprint>=0.1
+# pprint is part of the Python standard library, no need to install
 
 # Note: Python 3.10+ is recommended for full feature support
 # (match statements, type hints, etc.)
