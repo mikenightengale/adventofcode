@@ -33,12 +33,9 @@ sys.path.append(str(Path(__file__).parent.parent.parent))
 from utility import *
 
 
-def parse_distance(data: list[str]):
-    return [int(line[1:]) for line in data]
-
-
-def parse_direction(data: list[str]):
-    return [line[0] for line in data]
+def parse_rotations(data: list[str]):
+    """Parse rotation instructions into (direction, distance) tuples."""
+    return [(line[0], int(line[1:])) for line in data]
 
 
 def run_test(func, input_data, expected, description=""):
@@ -54,44 +51,39 @@ def run_test(func, input_data, expected, description=""):
 def part1(data: list[str]) -> int:
     """Solve Part 1 of the puzzle."""
     result = 0
-    initial_position = 50
-    directions = parse_direction(data)
-    distances = parse_distance(data)
+    tracking_position = 50
+    rotations = parse_rotations(data)
 
-    for direction, distance in zip(directions, distances):
+    for direction, distance in rotations:
         if direction == 'L':
-            initial_position = (initial_position - distance) % 100
+            tracking_position = (tracking_position - distance) % 100
         elif direction == 'R':
-            initial_position = (initial_position + distance) % 100
+            tracking_position = (tracking_position + distance) % 100
 
-        if initial_position == 0:
+        if tracking_position == 0:
             result += 1
 
     return result
-
-
 @timeit
 def part2(data: list[str]) -> int:
     """Solve Part 2 of the puzzle."""
     result = 0
-    initial_position = 50
-    directions = parse_direction(data)
-    distances = parse_distance(data)
+    tracking_position = 50
+    rotations = parse_rotations(data)
 
-    for direction, distance in zip(directions, distances):
+    for direction, distance in rotations:
         if direction == 'R':
             for k in range(1, distance + 1):
-                if (initial_position + k) % 100 == 0:
+                if (tracking_position + k) % 100 == 0:
                     result += 1
-            initial_position = (initial_position + distance) % 100
+            tracking_position = (tracking_position + distance) % 100
         elif direction == 'L':
             for k in range(1, distance + 1):
-                if (initial_position - k) % 100 == 0:
+                if (tracking_position - k) % 100 == 0:
                     result += 1
-            initial_position = (initial_position - distance) % 100
+            tracking_position = (tracking_position - distance) % 100
 
     return result
-
 
 def main():
     # Read input file
